@@ -22,7 +22,7 @@ for USAGE in ${GET_USAGE[*]}; do
 done
 
 let TOTAL_RAM=${GET_USAGE[0]}+${GET_USAGE[2]}
-BAR='▮'
+#BAR='▮'
 
 # You could also display
 # wired mem and free mem
@@ -40,31 +40,31 @@ for VALUE in ${GET_USAGE[*]}; do
 	PERC=$(in_percent)
 	PERC_LIST+=(${PERC})
 done
-
-if [[ ${PERC_LIST[0]} -lt 70 ]]; then
-	OUT="\e[32m${BAR}"
-elif [[ ${PERC_LIST[0]} -lt 90 ]]; then
-	OUT="\e[33m${BAR}"
-else
-	OUT="\e[31m${BAR}"
-fi
+#画图形
+#if [[ ${PERC_LIST[0]} -lt 70 ]]; then
+#	OUT="\e[32m${BAR}"
+#elif [[ ${PERC_LIST[0]} -lt 90 ]]; then
+#	OUT="\e[33m${BAR}"
+#else
+#	OUT="\e[31m${BAR}"
+#fi
 
 printf "\e[0;30mMEM ${PERC_LIST[0]}%% "
 
-SEQ=${PERC_LIST[0]:0:1}
-ROUND_UP=${PERC_LIST[0]:1:2}
-if [[ ${ROUND_UP} -ge 5 ]]; then
-	let SEQ=SEQ+1
-fi
+#SEQ=${PERC_LIST[0]:0:1}
+#ROUND_UP=${PERC_LIST[0]:1:2}
+#if [[ ${ROUND_UP} -ge 5 ]]; then
+#	let SEQ=SEQ+1
+#fi
 
-for (( I=0; I < "${SEQ}"; I++ )); do
-	printf "${OUT}"
-done
+#for (( I=0; I < "${SEQ}"; I++ )); do
+#	printf "${OUT}"
+#done
 
-RANGE=$((10-${SEQ}))
-for (( I=0; I < "${RANGE}"; I++ )); do
-	printf "\e[1;30m${BAR}"
-done
+#RANGE=$((10-${SEQ}))
+#for (( I=0; I < "${RANGE}"; I++ )); do
+#	printf "\e[1;30m${BAR}"
+#done
 
 # Include top 5 apps in textbar menu
 echo ''
