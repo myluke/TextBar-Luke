@@ -7,7 +7,11 @@
 # Mail: 		myluke@qq.com
 #过滤出上传大小
 rsyncSize=`tail -2 /tmp/rsync_info.log | grep 'received' |  sed "s/sent.*bytes  //g" | awk '{print $1}'`
-echo " $[${rsyncSize%.*}/1024]K/s"
+if [ $rsyncSize ]; then
+	echo " $[${rsyncSize%.*}/1024]K/s"
+else
+	echo " Uping"
+fi
 #过滤出最近上传文件
 #rsyncText=`tail -10 /tmp/rsync_info.log | grep 'building file list' -A10 | grep '/' -A10 | grep -v 'sent' | grep -v 'total' | grep -v 'building'`
 #rsyncText1=`tail -10 /tmp/rsync_info.log`

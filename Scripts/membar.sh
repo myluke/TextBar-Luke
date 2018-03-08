@@ -49,7 +49,7 @@ done
 #	OUT="\e[31m${BAR}"
 #fi
 
-printf "\e[0;30mMEM ${PERC_LIST[0]}%% "
+printf "\e[0;30m ${PERC_LIST[0]}%% "
 
 #SEQ=${PERC_LIST[0]:0:1}
 #ROUND_UP=${PERC_LIST[0]:1:2}

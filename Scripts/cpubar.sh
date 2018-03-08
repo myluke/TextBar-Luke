@@ -3,7 +3,7 @@
 free=`top -l 2 | grep "CPU usage" | tail -1 | awk '{printf "%.0f", $7+0}'`
 let used=100-$free
 
-printf "CPU "
+printf " "
 printf "%2d%% " $used
 #printf "["
 #let count=0;
